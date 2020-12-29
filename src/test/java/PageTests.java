@@ -33,13 +33,7 @@ public class PageTests extends BaseClass {
         AllureLifecycle lifecycle = Allure.getLifecycle();
         lifecycle.updateTestCase(testResult -> testResult.setName("Name of the test"));
         base.open(data);
+        getScreen(data);
     }
 
-    @Test(dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
-    void methodName2(Map<String, String> testData){
-        String data = testData.get("data");
-        AllureLifecycle lifecycle = Allure.getLifecycle();
-        lifecycle.updateTestCase(testResult -> testResult.setName("Name of the test"));
-        base.open(data);
-    }
 }

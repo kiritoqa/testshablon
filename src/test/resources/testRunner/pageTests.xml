@@ -16,20 +16,4 @@
             </class>
         </classes>
     </test>
-
-    <test name="Tests Web 2" >
-        <parameter name="test" value="Web"/>
-        <classes>
-            <class name="PageTests">
-                <parameter name="app" value="PC"/>
-                <parameter name="config" value="local"/>
-                <parameter name="browser" value="firefox"/>
-                <parameter name="width" value="1440"/>
-                <parameter name="height" value="1864"/>
-                <methods>
-                    <include name="methodName2"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
 </suite>

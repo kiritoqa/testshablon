@@ -4,9 +4,9 @@ services:
   selenoid:
     image: aerokube/selenoid:latest-release
     volumes:
-      - "${PWD}/init/selenoid:/etc/selenoid"
-      - "${PWD}/work/selenoid/video:/opt/selenoid/video"
-      - "${PWD}/work/selenoid/logs:/opt/selenoid/logs"
+      - "C:/Users/Serghei/IdeaProjects/testshablon/init/selenoid:/etc/selenoid"
+      - "C:/Users/Serghei/IdeaProjects/testshablon/work/selenoid/video:/opt/selenoid/video"
+      - "C:/Users/Serghei/IdeaProjects/testshablon/work/selenoid/logs:/opt/selenoid/logs"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       - OVERRIDE_VIDEO_OUTPUT_DIR=work/selenoid/video
@@ -15,10 +15,3 @@ services:
       - "4444:4444"
     network_mode: bridge
 
-  jenkins:
-    image: jenkins/jenkins:lts
-    volumes:
-      - ${PWD}/work/jenkins:/var/jenkins_home
-    ports:
-      - 8000:8080
-    network_mode: bridge
