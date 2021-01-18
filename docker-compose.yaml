@@ -14,11 +14,3 @@ services:
     ports:
       - "4444:4444"
     network_mode: bridge
-
-  jenkins:
-    image: jenkins/jenkins:lts
-    volumes:
-      - "C:/Users/Serghei/Downloads/jenkins.war"
-    ports:
-      - 8000:8080
-    network_mode: bridge

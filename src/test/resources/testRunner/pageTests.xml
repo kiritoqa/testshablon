@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="tests">
-    <test name="Tests Web 1">
-        <parameter name="test" value="Web"/>
+    <test name="Проверка Лицензии Рус Язык Веб">
+        <parameter name="test" value="Веб"/>
         <classes>
-            <class name="PageTests">
+            <class name="LicenseTests">
                 <parameter name="app" value="PC"/>
                 <parameter name="config" value="docker"/>
                 <parameter name="browser" value="chrome"/>
                 <parameter name="width" value="1440"/>
                 <parameter name="height" value="1864"/>
                <methods>
-                   <include name="methodName"/>
+                   <include name="licenseShouldBeValid"/>
                </methods>
             </class>
         </classes>
