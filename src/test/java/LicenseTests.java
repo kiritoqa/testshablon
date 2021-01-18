@@ -49,14 +49,17 @@ public class LicenseTests extends BaseClass {
 
         });
         step("Открыть страницу Проверить Лицензию",()->{
-            aboutProjec.clickLicense()
+            aboutProjec
+                    .clickLicense()
                     .licenseShouldHaveText(text)
                     .clickCheckLicense();
         });
         step("Открыть страницу Подтверждение лицензии",()->{
-            aboutProjec .licenseShouldBeHaveWebsite(website)
+            aboutProjec
+                    .licenseShouldBeHaveWebsite(website)
                     .operatingStatusShouldBeValid();
         });
+        getScreen("Окно Подтверждение лицензии");
     }
 
 }

@@ -68,7 +68,7 @@ public class BaseClass {
         return String.valueOf($(secondElement).getRect().getX()-$(firstElement).getRect().getX()-$(firstElement).getRect().getWidth());
     }
 
-    @Step("Сделать Сркиншот")
+    @Step("Сделать Сркиншот {0}")
     public void getScreen(String name){
         Selenide.sleep(3000);
         try {

@@ -38,6 +38,6 @@ public class AboutProjec extends BasePage{
     @Step("Operating status должен содержать текст Valid")
     public void operatingStatusShouldBeValid() {
         $("#operating-status").shouldHave(Condition.text("Operating status: VALID"));
-        getScreen("Operating status");
+
     }
 }

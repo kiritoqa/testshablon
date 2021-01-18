@@ -6,7 +6,7 @@
         <classes>
             <class name="LicenseTests">
                 <parameter name="app" value="PC"/>
-                <parameter name="config" value="docker"/>
+                <parameter name="config" value="local"/>
                 <parameter name="browser" value="chrome"/>
                 <parameter name="width" value="1440"/>
                 <parameter name="height" value="1864"/>
