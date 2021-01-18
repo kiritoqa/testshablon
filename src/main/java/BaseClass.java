@@ -26,7 +26,7 @@ public class BaseClass {
     public static synchronized WebDriver getDriver() {
         return tdriver.get();
     }
-    public WebDriver initialize_driver(String config,String env, int width, int height) throws MalformedURLException{
+    public WebDriver initialize_driver(String config,String env, String lang, int width, int height) throws MalformedURLException{
         switch(config) {
             case "docker":
                 WebDriver driver;
@@ -44,6 +44,7 @@ public class BaseClass {
                     System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");}
                 Configuration.browserSize=width+"x"+height;
                 Configuration.browser = env;
+                System.setProperty("chromeoptions.prefs", "intl.accept_languages=" + lang);
                 return getDriver();}
         return null;
     }

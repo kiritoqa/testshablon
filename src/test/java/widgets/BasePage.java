@@ -34,10 +34,9 @@ public class BasePage {
                 return grand;
         }
     }
-    public RegistrationPage open(String broker){
+    public RegistrationPage open(String broker,String path){
         step("Открыть "+getUrl(broker), () -> {
-            Selenide.open(getUrl(broker));
-
+            Selenide.open(getUrl(broker)+path);
         });
         return new RegistrationPage();
     }

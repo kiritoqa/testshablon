@@ -18,13 +18,17 @@ public class LicenseTests extends BaseClass {
     BasePage base = new BasePage();
     AboutProjec aboutProjec = new AboutProjec();
     String env;
+    String language;
+    String width1;
 
-    @Parameters({"app", "config", "browser", "width", "height"})
+    @Parameters({"app", "config", "browser","lang", "width", "height"})
     @BeforeMethod(description = "Настройки Окружения")
-    @Step("Устройство: {0} Браузер:{2} Ширина: {3}  Высота: {4} ")
-    public void BeforeClass(String app, String config, String browser, int width, int height) throws MalformedURLException {
-        initialize_driver(config,browser,width,height);
+    @Step("Устройство: {0} Браузер:{2} Язык {3} Ширина: {4}  Высота: {5} ")
+    public void BeforeClass(String app, String config, String browser, String lang, int width, int height) throws MalformedURLException {
+        initialize_driver(config,browser,lang,width,height);
         env = app;
+        language = lang;
+        width1 = String.valueOf(width);
     }
 
     @AfterMethod(description = "Закрыть Браузер")
@@ -39,20 +43,26 @@ public class LicenseTests extends BaseClass {
         String website = testData.get("website");
         AllureLifecycle lifecycle = Allure.getLifecycle();
         lifecycle.updateTestCase(testResult -> testResult.setName("Проверка лицензии на "+website));
+
         step("Открыть страницу О проекте",()->{
+            if (width1.equals("350")){
+                base
+                        .open(project,"about/");
+                switchTo().frame(0);
+            } else {
             base
-                    .open(project)
+                    .open(project,"/")
                     .closeRegistrationPage()
                     .openMenu()
-                    .selectAboutProject();
+                    .selectAboutProject();}
             getScreen("Окно: O проекте");
 
         });
         step("Открыть страницу Проверить Лицензию",()->{
             aboutProjec
                     .clickLicense()
-                    .licenseShouldHaveText(text)
-                    .clickCheckLicense();
+                    .licenseShouldHaveText(text,language)
+                    .clickCheckLicense(language);
         });
         step("Открыть страницу Подтверждение лицензии",()->{
             aboutProjec

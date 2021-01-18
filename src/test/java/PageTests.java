@@ -12,13 +12,15 @@ import java.util.Map;
 public class PageTests extends BaseClass {
     BasePage base = new BasePage();
     String env;
+    String language;
 
-    @Parameters({"app", "config", "browser", "width", "height"})
-    @BeforeClass(description = "Environment Configs")
-    @Step("Application: {0} Browser:{2} width: {3}  height: {4} ")
-    public void BeforeClass(String app, String config, String browser, int width, int height) throws MalformedURLException {
-        initialize_driver(config,browser,width,height);
+    @Parameters({"app", "config", "browser","lang", "width", "height"})
+    @BeforeMethod(description = "Настройки Окружения")
+    @Step("Устройство: {0} Браузер:{2} Язык {3} Ширина: {4}  Высота: {5} ")
+    public void BeforeClass(String app, String config, String browser, String lang, int width, int height) throws MalformedURLException {
+        initialize_driver(config,browser, lang, width,height);
         env = app;
+        language = lang;
     }
 
     @AfterMethod(description = "Close Browser")
@@ -32,7 +34,7 @@ public class PageTests extends BaseClass {
         String data = testData.get("data");
         AllureLifecycle lifecycle = Allure.getLifecycle();
         lifecycle.updateTestCase(testResult -> testResult.setName("Name of the test"));
-        base.open(data);
+        base.open(data,"path");
         getScreen(data);
     }
 

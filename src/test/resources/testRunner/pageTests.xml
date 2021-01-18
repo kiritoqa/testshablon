@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="tests">
+<suite name="All Test Suite" parallel="tests" thread-count="1">
     <test name="Проверка Лицензии Рус Язык Веб">
-        <parameter name="test" value="Веб"/>
+        <parameter name="test" value="Веб Рус Язык"/>
         <classes>
             <class name="LicenseTests">
                 <parameter name="app" value="PC"/>
                 <parameter name="config" value="local"/>
                 <parameter name="browser" value="chrome"/>
+                <parameter name="lang" value="ru"/>
                 <parameter name="width" value="1440"/>
                 <parameter name="height" value="1864"/>
                <methods>
                    <include name="licenseShouldBeValid"/>
                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Проверка Лицензии Анг Язык Веб">
+        <parameter name="test" value="Веб Анг Язык"/>
+        <classes>
+            <class name="LicenseTests">
+                <parameter name="app" value="PC"/>
+                <parameter name="config" value="local"/>
+                <parameter name="browser" value="chrome"/>
+                <parameter name="lang" value="en"/>
+                <parameter name="width" value="1440"/>
+                <parameter name="height" value="1864"/>
+                <methods>
+                    <include name="licenseShouldBeValid"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Проверка Лицензии Анг Язык Моб">
+        <parameter name="test" value="Моб Анг Язык"/>
+        <classes>
+            <class name="LicenseTests">
+                <parameter name="app" value="PC"/>
+                <parameter name="config" value="local"/>
+                <parameter name="browser" value="chrome"/>
+                <parameter name="lang" value="en"/>
+                <parameter name="width" value="350"/>
+                <parameter name="height" value="1864"/>
+                <methods>
+                    <include name="licenseShouldBeValid"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Проверка Лицензии Рус Язык Моб">
+        <parameter name="test" value="Моб Рус Язык"/>
+        <classes>
+            <class name="LicenseTests">
+                <parameter name="app" value="PC"/>
+                <parameter name="config" value="local"/>
+                <parameter name="browser" value="chrome"/>
+                <parameter name="lang" value="ru"/>
+                <parameter name="width" value="350"/>
+                <parameter name="height" value="1864"/>
+                <methods>
+                    <include name="licenseShouldBeValid"/>
+                </methods>
             </class>
         </classes>
     </test>
